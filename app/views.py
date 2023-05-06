@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView , CreateView
-from .models import Contact
+from django.views.generic import TemplateView, CreateView, ListView
+from .models import *
 # Create your views here.
 
 class Home(TemplateView):
@@ -13,12 +13,16 @@ class Contact(CreateView):
     model = Contact
     template_name = "contact.html"
     fields = "__all__"
+    
 
-class Menu(TemplateView):
+class Menu_View(ListView):
+    model = Menu
     template_name = "menu.html"
 
-class Reservation(TemplateView):
+class Reservation(CreateView):
+    model = Book_Your_Table
     template_name = "reservation.html"
+    fields = "__all__"
 
 class Service(TemplateView):
     template_name = "service.html"

@@ -32,6 +32,9 @@ class Book_Your_Table(models.Model):
 
     def __str__(self):
         return self.person
+    
+    def get_absolute_url(self):
+        return reverse('home')
 
 
 
